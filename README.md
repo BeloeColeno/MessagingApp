@@ -17,4 +17,36 @@
 - ../src/resources/BDScript.cs
 
 ## Usage
-- Endpoint for User Service 1: /users
+1. Endpoint 1 for User Service:[GET] /users
+ - Получение списка всех пользователей
+2. Endpoint 2 for User Service:[GET] /user/{id}
+ - Получение одного пользователя по его id
+3. Endpoint 3 for User Service:[POST] /user
+ - Создание пользователя. Нужно передавать тело запроса в формате Json[^1].
+[1]: {
+  "name": "John Doe",
+  "email": "John@Doe.com",
+  "password": "John_Doe_pass_123",
+  "roles": [
+    {
+      "role": "SUBSCRIBER"
+    },
+    {
+      "role": "PRODUCER"
+    }
+  ]
+}
+4. Endpoint 4 for User Service:[DELETE] /user/{id}
+ - Удаление пользователя по его id
+5. Endpoint 5 for User Service:[PUT] /user/{id}
+ - Обновление пользователя по его id. Нужно передавать данные в формате Json[^2].
+[2]:{
+  "name": "John Doe",
+  "email": "John@Doe.com",
+  "password": "John_Doe_pass_123",
+  "roles": [
+    {
+      "role": "SUBSCRIBER"
+    }
+  ]
+}
