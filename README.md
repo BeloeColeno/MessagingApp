@@ -23,7 +23,7 @@
  - Получение одного пользователя по его id
 3. Endpoint 3 for User Service:[POST] /user
  - Создание пользователя. Нужно передавать тело запроса в формате Json[^1].
-[1]: {
+[^1]: {
   "name": "John Doe",
   "email": "John@Doe.com",
   "password": "John_Doe_pass_123",
@@ -40,7 +40,7 @@
  - Удаление пользователя по его id
 5. Endpoint 5 for User Service:[PUT] /user/{id}
  - Обновление пользователя по его id. Нужно передавать данные в формате Json[^2].
-[2]:{
+[^2]:{
   "name": "John Doe",
   "email": "John@Doe.com",
   "password": "John_Doe_pass_123",
