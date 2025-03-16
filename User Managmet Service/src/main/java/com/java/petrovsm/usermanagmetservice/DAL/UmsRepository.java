@@ -1,7 +1,7 @@
-package com.java.petrovsm.usermanagmetservice.dal;
+package com.java.petrovsm.usermanagmetservice.DAL;
 
-import com.java.petrovsm.usermanagmetservice.dtos.Role;
-import com.java.petrovsm.usermanagmetservice.dtos.User;
+import com.java.petrovsm.usermanagmetservice.DTOS.Role;
+import com.java.petrovsm.usermanagmetservice.DTOS.User;
 import java.util.Map;
 import java.util.UUID;
 

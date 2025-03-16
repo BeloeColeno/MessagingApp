@@ -1,4 +1,4 @@
-package com.java.petrovsm.usermanagmetservice.dtos;
+package com.java.petrovsm.usermanagmetservice.DTOS;
 
 public class Constants {
     private Constants() {

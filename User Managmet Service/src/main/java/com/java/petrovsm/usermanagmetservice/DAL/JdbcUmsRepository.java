@@ -1,4 +1,4 @@
-package com.java.petrovsm.usermanagmetservice.dal;
+package com.java.petrovsm.usermanagmetservice.DAL;
 
 import java.time.Instant;
 import java.util.Arrays;
@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.java.petrovsm.usermanagmetservice.dtos.Constants;
-import com.java.petrovsm.usermanagmetservice.dtos.LastSession;
-import com.java.petrovsm.usermanagmetservice.dtos.Role;
-import com.java.petrovsm.usermanagmetservice.dtos.User;
+import com.java.petrovsm.usermanagmetservice.DTOS.Constants;
+import com.java.petrovsm.usermanagmetservice.DTOS.LastSession;
+import com.java.petrovsm.usermanagmetservice.DTOS.Role;
+import com.java.petrovsm.usermanagmetservice.DTOS.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

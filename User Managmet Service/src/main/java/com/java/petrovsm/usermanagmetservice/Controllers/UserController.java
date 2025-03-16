@@ -1,8 +1,8 @@
-package com.java.petrovsm.usermanagmetservice.controllers;
+package com.java.petrovsm.usermanagmetservice.Controllers;
 
-import com.java.petrovsm.usermanagmetservice.dal.UmsRepository;
-import com.java.petrovsm.usermanagmetservice.dtos.Constants;
-import com.java.petrovsm.usermanagmetservice.dtos.User;
+import com.java.petrovsm.usermanagmetservice.DAL.UmsRepository;
+import com.java.petrovsm.usermanagmetservice.DTOS.Constants;
+import com.java.petrovsm.usermanagmetservice.DTOS.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

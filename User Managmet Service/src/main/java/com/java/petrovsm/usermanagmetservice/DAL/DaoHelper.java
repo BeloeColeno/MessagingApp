@@ -1,4 +1,4 @@
-package com.java.petrovsm.usermanagmetservice.dal;
+package com.java.petrovsm.usermanagmetservice.DAL;
 
 import java.nio.ByteBuffer;
 import java.util.UUID;

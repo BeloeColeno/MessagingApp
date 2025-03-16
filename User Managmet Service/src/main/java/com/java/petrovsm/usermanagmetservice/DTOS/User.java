@@ -1,4 +1,4 @@
-package com.java.petrovsm.usermanagmetservice.dtos;
+package com.java.petrovsm.usermanagmetservice.DTOS;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
