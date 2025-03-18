@@ -44,16 +44,16 @@ public class UserController {
             User user = umsRepository.findUserById(UUID.fromString(userId));
             if (user.getId() == null) {
                 response.put(Constants.CODE, "404");
-                response.put(Constants.MESSAGE, "Пользователь не найден");
+                response.put(Constants.MESSAGE, "User not found");
                 response.put(Constants.DATA, new HashMap<>());
             } else {
                 response.put(Constants.CODE, "200");
-                response.put(Constants.MESSAGE, "Пользователь успешно найден");
+                response.put(Constants.MESSAGE, "User successfully found");
                 response.put(Constants.DATA, user);
             }
         } catch (Exception e) {
             response.put(Constants.CODE, "500");
-            response.put(Constants.MESSAGE, "Ошибка при поиске пользователя: " + e.getMessage());
+            response.put(Constants.MESSAGE, "Error finding user: " + e.getMessage());
             response.put(Constants.DATA, new HashMap<>());
         }
         return Mono.just(ResponseEntity.ok()
@@ -68,17 +68,17 @@ public class UserController {
             UUID newUserId = umsRepository.createUser(user);
             if (newUserId == null) {
                 response.put(Constants.CODE, "500");
-                response.put(Constants.MESSAGE, "Ошибка при создании пользователя");
+                response.put(Constants.MESSAGE, "Error creating user");
                 response.put(Constants.DATA, new HashMap<>());
             } else {
                 User createdUser = umsRepository.findUserById(newUserId);
                 response.put(Constants.CODE, "201");
-                response.put(Constants.MESSAGE, "Пользователь успешно создан");
+                response.put(Constants.MESSAGE, "User successfully created");
                 response.put(Constants.DATA, createdUser);
             }
         } catch (Exception e) {
             response.put(Constants.CODE, "500");
-            response.put(Constants.MESSAGE, "Ошибка при создании пользователя: " + e.getMessage());
+            response.put(Constants.MESSAGE, "Error creating user: " + e.getMessage());
             response.put(Constants.DATA, new HashMap<>());
         }
         return Mono.just(ResponseEntity.ok()
@@ -93,16 +93,16 @@ public class UserController {
             int result = umsRepository.deleteUser(UUID.fromString(userId));
             if (result <= 0) {
                 response.put(Constants.CODE, "404");
-                response.put(Constants.MESSAGE, "Пользователь не найден или не может быть удален");
+                response.put(Constants.MESSAGE, "User not found or cannot be deleted");
                 response.put(Constants.DATA, new HashMap<>());
             } else {
                 response.put(Constants.CODE, "200");
-                response.put(Constants.MESSAGE, "Пользователь успешно удален");
+                response.put(Constants.MESSAGE, "User successfully deleted");
                 response.put(Constants.DATA, new HashMap<>());
             }
         } catch (Exception e) {
             response.put(Constants.CODE, "500");
-            response.put(Constants.MESSAGE, "Ошибка при удалении пользователя: " + e.getMessage());
+            response.put(Constants.MESSAGE, "Error deleting user: " + e.getMessage());
             response.put(Constants.DATA, new HashMap<>());
         }
         return Mono.just(ResponseEntity.ok()
@@ -114,11 +114,10 @@ public class UserController {
     @RequestMapping(method = RequestMethod.PUT, path = "/user/{id}")
     public Mono<ResponseEntity<Map<String, Object>>> updateUser(@PathVariable("id") String userId, @RequestBody User updatedUser) {
         try {
-
             User existingUser = umsRepository.findUserById(UUID.fromString(userId));
             if (existingUser.getId() == null) {
                 response.put(Constants.CODE, "404");
-                response.put(Constants.MESSAGE, "Пользователь не найден");
+                response.put(Constants.MESSAGE, "User not found");
                 response.put(Constants.DATA, new HashMap<>());
                 return Mono.just(ResponseEntity.ok()
                         .header(Constants.CONTENT_TYPE, Constants.APPLICATION_JSON)
@@ -132,17 +131,17 @@ public class UserController {
 
             if (newUserId == null) {
                 response.put(Constants.CODE, "500");
-                response.put(Constants.MESSAGE, "Ошибка при обновлении пользователя");
+                response.put(Constants.MESSAGE, "Error updating user");
                 response.put(Constants.DATA, new HashMap<>());
             } else {
                 User newUser = umsRepository.findUserById(newUserId);
                 response.put(Constants.CODE, "200");
-                response.put(Constants.MESSAGE, "Пользователь успешно обновлен");
+                response.put(Constants.MESSAGE, "User successfully updated");
                 response.put(Constants.DATA, newUser);
             }
         } catch (Exception e) {
             response.put(Constants.CODE, "500");
-            response.put(Constants.MESSAGE, "Ошибка при обновлении пользователя: " + e.getMessage());
+            response.put(Constants.MESSAGE, "Error updating user: " + e.getMessage());
             response.put(Constants.DATA, new HashMap<>());
         }
         return Mono.just(ResponseEntity.ok()
