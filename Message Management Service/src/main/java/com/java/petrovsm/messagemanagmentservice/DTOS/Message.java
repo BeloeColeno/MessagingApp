@@ -11,7 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Message {
     private UUID id;
-    private UUID producer_id;
+    private UUID author;
     private String content;
-    private long created;
+    private long timestamp;
 }
