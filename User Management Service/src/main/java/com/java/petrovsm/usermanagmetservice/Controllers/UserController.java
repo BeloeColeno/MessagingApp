@@ -38,7 +38,7 @@ public class UserController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/user/{id}")
+    @RequestMapping(method = RequestMethod.GET, path = "/users/user/{id}")
     public Mono<ResponseEntity<Map<String, Object>>> getUserById(@PathVariable("id") String userId) {
         try {
             User user = umsRepository.findUserById(UUID.fromString(userId));
@@ -62,7 +62,7 @@ public class UserController {
                 .body(response));
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/user")
+    @RequestMapping(method = RequestMethod.POST, path = "/users/user")
     public Mono<ResponseEntity<Map<String, Object>>> createUser(@RequestBody User user) {
         try {
             UUID newUserId = umsRepository.createUser(user);
@@ -87,7 +87,7 @@ public class UserController {
                 .body(response));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/user/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, path = "/users/user/{id}")
     public Mono<ResponseEntity<Map<String, Object>>> deleteUser(@PathVariable("id") String userId) {
         try {
             int result = umsRepository.deleteUser(UUID.fromString(userId));
@@ -111,7 +111,7 @@ public class UserController {
                 .body(response));
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/user/{id}")
+    @RequestMapping(method = RequestMethod.PUT, path = "/users/user/{id}")
     public Mono<ResponseEntity<Map<String, Object>>> updateUser(@PathVariable("id") String userId, @RequestBody User updatedUser) {
         try {
             User existingUser = umsRepository.findUserById(UUID.fromString(userId));
