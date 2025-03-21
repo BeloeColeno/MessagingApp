@@ -25,11 +25,11 @@ MYSQL_ROOT_PASSWORD=passw -d
 ```
 
 ## Usage
-1. Endpoint 1 for User Service:[GET] /users
+1. Endpoint 1 for User Service:[GET] \users
  - Получение списка всех пользователей
-2. Endpoint 2 for User Service:[GET] /user/{id}
+2. Endpoint 2 for User Service:[GET] \users\user\{id}
  - Получение одного пользователя по его id
-3. Endpoint 3 for User Service:[POST] /user
+3. Endpoint 3 for User Service:[POST] \users\user
  - Создание пользователя. Нужно передавать тело запроса в формате Json.
 ```
 {
@@ -46,7 +46,7 @@ MYSQL_ROOT_PASSWORD=passw -d
   ]
 }
 ```
-4.Endpoint 4 for User Service:[PUT] /user/{id}
+4.Endpoint 4 for User Service:[PUT] \users\user\{id}
  - Обновление пользователя по его id. Нужно передавать данные в формате Json.
 ```
 {
@@ -60,16 +60,16 @@ MYSQL_ROOT_PASSWORD=passw -d
   ]
 }
 ```
-5. Endpoint 5 for User Service:[DELETE] /user/{id}
+5. Endpoint 5 for User Service:[DELETE] \users\user\{id}
  - Удаление пользователя по его id
    
-6. Endpoint 1 for Message Service:[GET] /message/{id}
+6. Endpoint 1 for Message Service:[GET] \messages\message\{id}
  - Получение сообщения по id.
-7. Endpoint 2 for Message Service:[GET] /producer/{id}/messages
+7. Endpoint 2 for Message Service:[GET] \messages\producer\{id}
  - Получение всех сообщеий одного автора по его id.
-8. Endpoint 3 for Message Service:[GET] /subscriber/{id}/messages
+8. Endpoint 3 for Message Service:[GET] \messages\subscriber\{id}
  - Получение всех сообщений для одного подписчика по его id.
-9. Endpoint 4 for Message Service:[POST] /message
+9. Endpoint 4 for Message Service:[POST] \messages\message
  - Создание сообщения. Нужно передавать тело запроса в формате Json.
 ```
 {
@@ -77,7 +77,7 @@ MYSQL_ROOT_PASSWORD=passw -d
     "content": "Does it write in?"
 }
 ```
-10. Endpoint 5 for Message Service:[PUT] /message/{id}
+10. Endpoint 5 for Message Service:[PUT] \messages\message\{id}
 - Обновление сообщения по его id. Нужно передавать данные в формате Json.
 ```
 {
@@ -85,5 +85,6 @@ MYSQL_ROOT_PASSWORD=passw -d
     "content": "Does it update?"
 }
 ```
-11. Endpoint 6 for Message Service:[DELETE] /message/{id}
+11. Endpoint 6 for Message Service:[DELETE] \messages\message\{id}
  - Удаление сообщения по его id
+12. Endpoint 7 for Message Service:[GET] \subscriptions\subscriber\{id}
