@@ -69,6 +69,12 @@ public class JdbcMessageRepository implements MessageRepository {
     }
 
     @Override
+    public int updateMessage(Message message) {
+        return jdbcTemplate.update(Constants.UPDATE_MESSAGE,
+                message.getContent(), message.getId().toString());
+    }
+
+    @Override
     public int deleteMessageById(UUID messageId) {
         return jdbcTemplate.update(Constants.DELETE_MESSAGE, messageId.toString());
     }
