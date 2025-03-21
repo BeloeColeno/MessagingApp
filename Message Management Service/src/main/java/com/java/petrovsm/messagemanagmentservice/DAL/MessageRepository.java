@@ -10,4 +10,5 @@ import com.java.petrovsm.messagemanagmentservice.DTOS.Message;
         public List<Message> getMessagesForSubscriberById(UUID subscriberId);
         public UUID createMessage(Message message);
         public int deleteMessageById(UUID messageId);
+        public int updateMessage(Message message);
     }
