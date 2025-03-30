@@ -24,6 +24,36 @@ MYSQL_ROOT_PASSWORD=passw -d
 ../src/resources/BDScript.cs
 ```
 
+## Kubernetes Setup(Ubuntu)
+1. Из корневой директории проекта нужно собрать проект и создать Docker-образы сервисов:
+```
+ cd ../messagemanagmentservice
+ mvn clean package -DskipTests
+ docker build -t petrovsm/messagemanagmentservice:local .
+```
+```
+cd ../usermanagmentservice
+mvn clean package -DskipTests
+docker build -t petrovsm/usermanagmentservice:local .
+```
+2. Затем загрузить образы в Docker:
+- docker push petrovsm/messagemanagmentservice:local
+- docker push petrovsm/usermanagmentservice:local
+3. Когда образы созданы и загружены, можно развернуть сервисы в кубер:
+- kubectl apply -f deployment.yaml
+4. Если сервис поднимается впервые, нужно обратиться к контейнеру с базой и выполнить SQL-скрипты которые указаны в Database:
+```
+kubectl exec -it $(kubectl get pod -l app=mysql -o jsonpath="{.items[0].metadata.name}") -- mysql -uroot -ppassw
+```
+- (Скопировать скрипт из папки Database)
+5. Сервис должен быть поднят, можно проверить выполнив:
+```
+kubectl get pods
+kubectl get service
+kubectl get hpa
+```
+6. Обращение к сервису нужно делать по адресу http://localhost:{ip сервиса указанный в kubectl get service}/
+
 ## Usage
 1. Endpoint 1 for User Service:[GET] \users
  - Получение списка всех пользователей
