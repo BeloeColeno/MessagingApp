@@ -37,10 +37,12 @@ mvn clean package -DskipTests
 docker build -t petrovsm/usermanagmentservice:local .
 ```
 2. Затем загрузить образы в Docker:
-- docker push petrovsm/messagemanagmentservice:local
-- docker push petrovsm/usermanagmentservice:local
+```
+docker push petrovsm/messagemanagmentservice:local
+docker push petrovsm/usermanagmentservice:local
+```
 3. Когда образы созданы и загружены, можно развернуть сервисы в кубер:
-- kubectl apply -f deployment.yaml
+``` kubectl apply -f deployment.yaml ```
 4. Если сервис поднимается впервые, нужно обратиться к контейнеру с базой и выполнить SQL-скрипты которые указаны в Database:
 ```
 kubectl exec -it $(kubectl get pod -l app=mysql -o jsonpath="{.items[0].metadata.name}") -- mysql -uroot -ppassw
